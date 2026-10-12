@@ -57,7 +57,7 @@ games = [
     release_year: 2024,
     publisher: "Neon Studios",
     cover_image:
-      "https://res.cloudinary.com/dnq35ub8e/image/upload/v1774270966/p4goxo75925yd5ezzbsr.jpg",
+      "/images/cyber-quest.jpg",
     description:
       "A cyberpunk adventure game where you uncover secrets hidden in a neon-lit city.",
     in_stock: true,
@@ -150,7 +150,7 @@ games = [
     release_year: 2021,
     publisher: "Brainy Games",
     cover_image:
-      "https://res.cloudinary.com/dnq35ub8e/image/upload/v1774270995/qes67t88lrm9s8mkbd1x.jpg",
+      "/images/puzzle-mind.jpeg",
     description: "Challenge your brain with complex puzzles and mind-bending challenges.",
     in_stock: true,
     featured: false

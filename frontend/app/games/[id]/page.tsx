@@ -5,9 +5,7 @@ import { Game } from "@/app/types/game";
 
 const getAllGames = async () => {
   const data = await getGames();
-  const parsedGames = Array.isArray(data)
-    ? data
-    : data?.data || data?.games || [];
+  const parsedGames = data?.data ?? [];
 
   const normalizedGames: Game[] = parsedGames.map((g: any) => ({
     ...g,

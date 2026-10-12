@@ -33,21 +33,6 @@ defmodule GameStore.Accounts.User do
   end
 
   @doc """
-  Builds a changeset for updating user fields that do not require password changes.
-
-  Expects a `%User{}` struct and a map of user attributes.
-  Returns an `Ecto.Changeset`.
-  """
-  def update_changeset(user, attrs) do
-    user
-    |> cast(attrs, [:email])
-    |> validate_required([:email])
-    |> normalize_email()
-    |> validate_format(:email, ~r/^[^\s]+@[^\s]+$/, message: "must be a valid email")
-    |> unique_constraint(:email, message: "already taken")
-  end
-
-  @doc """
   Builds a changeset for changing a user's role.
 
   Expects a `%User{}` struct and a map containing `:role`.

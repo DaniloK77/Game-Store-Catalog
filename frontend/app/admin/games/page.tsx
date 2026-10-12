@@ -21,14 +21,10 @@ export default function AdminGamesPage() {
 
   useEffect(() => {
     // GET ostaje PUBLIC — bez tokena
-    fetch('https://game-store-catalog.onrender.com/api/games')
+    fetch('http://localhost:4000/api/games')
       .then(res => res.json())
       .then(data => {
-        const raw = Array.isArray(data)
-          ? data
-          : Array.isArray(data.data)
-          ? data.data
-          : data.games || []
+        const raw = data.data ?? []
 
         const mapped = raw.map((g: any) => ({
           id: g.id,
@@ -36,8 +32,8 @@ export default function AdminGamesPage() {
           genre: g.genre,
           price: g.price,
           platform: g.platform,
-          inStock: g.in_stock === true || g.inStock === true,
-          coverImage: g.cover_image || g.coverImage || '',
+          inStock: g.inStock === true,
+          coverImage: g.coverImage || '',
         }))
 
         setGames(mapped)

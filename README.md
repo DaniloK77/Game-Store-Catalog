@@ -19,8 +19,7 @@ Next.js 16 + React 19 on the frontend, an Elixir/Phoenix REST API with PostgreSQ
 
 <br/>
 
-<!-- TODO: replace with a real screenshot or GIF of the app, e.g. ./docs/screenshot.png -->
-![Game Store Catalog screenshot](https://placehold.co/1200x630/4f46e5/ffffff?text=Game+Store+Catalog+-+screenshot+coming+soon)
+![Game Store Catalog: the games catalog with the filters panel](docs/screenshots/catalog.webp)
 
 🌐 **Live demo:** [YOUR_DEMO_URL] · 🐛 [Report a bug](https://github.com/DaniloK77/Game-Store-Catalog/issues) · 💡 [Request a feature](https://github.com/DaniloK77/Game-Store-Catalog/issues)
 
@@ -51,6 +50,43 @@ Next.js 16 + React 19 on the frontend, an Elixir/Phoenix REST API with PostgreSQ
 - ✅ **User management API** to list and create users and to promote or demote them, with self-demotion blocked
 - ✅ **Phoenix LiveView admin panel**, a server-rendered alternative dashboard for games and users
 - ✅ **Automated tests** (ExUnit) for the Games and Accounts contexts and the Game and Session API controllers, using a mocked image service and ExCoveralls for coverage
+
+---
+
+## 📸 Screenshots
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <b>Home page</b><br/>
+      <sub>Latest games with wishlist buttons and the release-year toggle</sub><br/><br/>
+      <img src="docs/screenshots/home.webp" alt="Home page with the game grid" />
+    </td>
+    <td width="50%" align="center">
+      <b>Game details</b><br/>
+      <sub>Pre-rendered page with genre, platform, price, publisher and stock status</sub><br/><br/>
+      <img src="docs/screenshots/game-details.webp" alt="Game details page for Steel Horizon" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <b>Empty search state</b><br/>
+      <sub>Shown when no game matches the search, with a one-click reset</sub><br/><br/>
+      <img src="docs/screenshots/empty-state.webp" alt="Empty state shown when a search has no results" />
+    </td>
+    <td width="50%" align="center">
+      <b>Footer</b><br/>
+      <sub>Collapsible sections, social links and the Admin Panel entry point</sub><br/><br/>
+      <img src="docs/screenshots/footer.webp" alt="Footer with collapsible sections" />
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  <b>Mobile layout</b><br/>
+  <sub>Featured games carousel and burger menu on a phone</sub><br/><br/>
+  <img src="docs/screenshots/mobile.webp" alt="Home page on a phone" width="280" />
+</div>
 
 ---
 
@@ -106,12 +142,13 @@ Game-Store-Catalog/
 │   │   ├── games/                   # /games catalog and /games/[id] details (SSG)
 │   │   ├── wishlist/                # /wishlist (localStorage-backed)
 │   │   ├── admin/                   # Admin login + game CRUD (token-protected)
-│   │   ├── types/game.ts            # Shared `Game` TypeScript type
-│   │   └── data/games.json          # Legacy mock data (not used at runtime)
+│   │   └── types/game.ts            # Shared `Game` TypeScript type
 │   ├── components/                  # Reusable UI components + SearchContext
 │   ├── lib/                         # API helpers: getGames(), apiFetch()
-│   ├── public/                      # Static assets
+│   ├── public/images/               # Locally hosted game cover images
 │   └── package.json                 # Scripts & dependencies
+│
+├── docs/screenshots/                # Screenshots used in this README
 │
 └── backend/                         # Elixir/Phoenix REST API + LiveView admin
     ├── lib/

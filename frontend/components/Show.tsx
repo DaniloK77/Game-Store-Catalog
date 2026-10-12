@@ -10,12 +10,7 @@ export default function Show({ sort, setSort }: Props) {
     setSort(value)
     setOpen(false)
   }
-  const label =
-    sort === "new"
-      ? "New Release"
-      : sort === "old"
-      ? "Old → New"
-      : "New → Old"
+  const label = sort === "old" ? "Old → New" : "New Release"
 
   return (
     <div className="flex items-center justify-center gap-2 mt-4 relative">

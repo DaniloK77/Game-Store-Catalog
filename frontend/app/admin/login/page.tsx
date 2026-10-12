@@ -14,7 +14,7 @@ export default function AdminLoginPage() {
     setLoading(true)
     setError('')
 
-    const res = await fetch('https://game-store-catalog.onrender.com/api/sessions', {
+    const res = await fetch('http://localhost:4000/api/sessions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),

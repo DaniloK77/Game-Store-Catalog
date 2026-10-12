@@ -20,6 +20,9 @@ config :game_store, GameStoreWeb.Endpoint,
   secret_key_base: "wBPaffVQSLsV0Jni8tmlM77EIBEhyhXyAIVu5+I0WBbGPqpcei0hkzXFv7nUg5Rp",
   server: false
 
+# In test we never call Cloudinary
+config :game_store, :image_service, GameStore.FakeImageService
+
 # In test we don't send emails
 config :game_store, GameStore.Mailer, adapter: Swoosh.Adapters.Test
 

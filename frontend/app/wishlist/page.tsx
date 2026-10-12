@@ -31,9 +31,7 @@ export default function WishlistPage() {
 
       const data = await getGames();
 
-      const parsedGames = Array.isArray(data)
-        ? data
-        : data?.data || data?.games || [];
+      const parsedGames = data?.data ?? [];
 
       const normalizedGames = parsedGames.map((g: any) => ({
         ...g,

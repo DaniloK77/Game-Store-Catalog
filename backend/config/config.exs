@@ -60,10 +60,9 @@ config :logger, :default_formatter,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Service used to upload and delete game cover images
+config :game_store, :image_service, GameStore.Cloudinary
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
-
-config :game_store, :image_service, GameStore.Cloudinary
-
-config :game_store, :image_service, GameStore.FakeImageService

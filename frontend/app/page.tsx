@@ -29,9 +29,7 @@ export default function HomePage() {
     async function fetchData() {
       const data = await getGames()
 
-      const parsedGames = Array.isArray(data)
-        ? data
-        : data?.data || data?.games || []
+      const parsedGames = data?.data ?? []
 
       const normalizedGames = parsedGames.map((g: any) => ({
         ...g,
@@ -66,28 +64,11 @@ export default function HomePage() {
     .filter(g =>
       g.title?.toLowerCase().includes(search.toLowerCase())
     )
-    .sort((a, b) => {
-      switch (sort) {
-        case "new":
-        case "newest":
-          return b.releaseYear - a.releaseYear
-
-        case "old":
-          return a.releaseYear - b.releaseYear
-
-        case "priceLow":
-          return a.price - b.price
-
-        case "priceHigh":
-          return b.price - a.price
-
-        case "title":
-          return a.title.localeCompare(b.title)
-
-        default:
-          return 0
-      }
-    })
+    .sort((a, b) =>
+      sort === "old"
+        ? a.releaseYear - b.releaseYear
+        : b.releaseYear - a.releaseYear
+    )
 
   return (
     <div className="max-w-7xl mx-auto p-6">

@@ -13,10 +13,20 @@ export async function getGames(params?: {
   if (params?.inStock) query.append("inStock", "true")
   if (params?.sort) query.append("sort", params.sort)
 
-  const res = await fetch(
-    `https://game-store-catalog.onrender.com/api/games?${query.toString()}`,
-     
-  )
+  try {
+    const res = await fetch(
+      `http://localhost:4000/api/games?${query.toString()}`,
+    )
 
-  return res.json()
+    if (!res.ok) {
+      console.warn(`getGames: API responded with ${res.status}`)
+      return { data: [] }
+    }
+
+    return await res.json()
+  } catch (error) {
+    // API is unreachable (e.g. backend not started yet) - show an empty list instead of crashing
+    console.warn("getGames: API is not reachable", error)
+    return { data: [] }
+  }
 }

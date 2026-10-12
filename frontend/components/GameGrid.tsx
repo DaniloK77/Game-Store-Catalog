@@ -4,9 +4,9 @@ import { Game } from "../app/types/game"
 type Props = {
   games: Game[];
   limit?: number;
-  isInWishlist?: (gameId: number) => boolean;
-  onAddToWishlist?: (gameId: number) => void;
-  onRemoveFromWishlist?: (gameId: number) => void;
+  isInWishlist: (gameId: number) => boolean;
+  onAddToWishlist: (gameId: number) => void;
+  onRemoveFromWishlist: (gameId: number) => void;
 }
 
 export default function GameGrid({
@@ -16,7 +16,7 @@ export default function GameGrid({
   isInWishlist,
   onRemoveFromWishlist
 }: Props) {
-  const visibleGames = limit ? (games || []).slice(0, limit) : games
+  const visibleGames = limit ? games.slice(0, limit) : games
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -24,9 +24,9 @@ export default function GameGrid({
         <GameCard
           key={game.id}
           game={game}
-          onAddToWishlist={onAddToWishlist || (() => {})}
-          onRemoveFromWishlist={onRemoveFromWishlist || (() => {})}
-          isInWishlist={isInWishlist || (() => false)}
+          onAddToWishlist={onAddToWishlist}
+          onRemoveFromWishlist={onRemoveFromWishlist}
+          isInWishlist={isInWishlist}
         />
       ))}
     </div>

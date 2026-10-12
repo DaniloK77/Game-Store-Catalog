@@ -46,16 +46,6 @@ defmodule GameStore.Accounts do
   end
 
   @doc """
-  Fetches a user by id.
-
-  Expects a user id.
-  Returns a `%User{}` struct or `nil` when no user exists for that id.
-  """
-  def get_user(id) do
-    Repo.get(User, id)
-  end
-
-  @doc """
   Creates a token for the given user.
   Generates a random URL-safe string, stores it in the
   database linked to the user, and returns it.

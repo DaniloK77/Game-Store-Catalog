@@ -27,10 +27,10 @@ export default function EditGamePage() {
 
   useEffect(() => {
     // GET je PUBLIC — bez tokena
-    fetch(`https://game-store-catalog.onrender.com/api/games/${id}`)
+    fetch(`http://localhost:4000/api/games/${id}`)
       .then(res => res.json())
       .then(data => {
-        const game = data.game || data.data || data
+        const game = data.data ?? {}
         setForm({
           title: game.title || '',
           genre: game.genre || '',
@@ -38,9 +38,9 @@ export default function EditGamePage() {
           description: game.description || '',
           platform: game.platform || '',
           publisher: game.publisher || '',
-          releaseYear: game.release_year || game.releaseYear || '',
-          coverImage: game.cover_image || game.coverImage || '',
-          inStock: game.in_stock === true || game.inStock === true,
+          releaseYear: game.releaseYear || '',
+          coverImage: game.coverImage || '',
+          inStock: game.inStock === true,
           featured: game.featured === true,
         })
         setLoading(false)

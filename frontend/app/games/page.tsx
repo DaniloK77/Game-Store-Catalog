@@ -22,7 +22,7 @@ export default function GamesPage() {
       setLoading(true); // ← svaki novi fetch = loading
       const data = await getGames({ search, platform, genre, inStock, sort });
 
-      const parsedGames = Array.isArray(data) ? data : data?.data || [];
+      const parsedGames = data?.data ?? [];
 
       const normalizedGames = parsedGames.map((g: any) => ({
         ...g,
